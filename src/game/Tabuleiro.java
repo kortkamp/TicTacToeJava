@@ -22,8 +22,7 @@ public class Tabuleiro {
 				this.content[i][j] = 0;
 		
 		state = State.RUNNING;
-		// Na corrente implementação não é necessário inicializar os valores do tabuleiro
-		// pois o Java já iniciliza arrays com o valor 0.
+		
 	}
 	
 	// Função de validação para a entrada do jogador.
@@ -40,7 +39,7 @@ public class Tabuleiro {
 			return(false);
 		}
 		
-		//userInterface.print("jogada válida");
+		
 		return(true);
 	}
 	

@@ -39,7 +39,7 @@ public class Computador extends Jogador {
 		return(this.jogadaFinal(this.oponentNumber));
 	}
 	// Verifica se um dos jogadores pode terminar o jogo com apenas mais uma jogada
-	// Basicamente essa função testa todas as linha, coluna e diagonais para ferificar o se o player (argumento)
+	// Basicamente essa função testa todas as linhas, colunas e diagonais para ferificar o se o player (argumento)
 	// já preencheu 2 casas (soma == 2) e se ainda falta 1 (prouto ==0).
 	// Caso essas condições sejam ambas verdadeiras ela retorna uma jogada válida com as coordenadas da casa.
 	// Juro que tentei faze-la mais inteligível, porém usaria tantas varáveis e if`s que estava ficando horrorosa.

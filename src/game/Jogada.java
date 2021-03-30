@@ -4,7 +4,15 @@ package game;
 
 public class Jogada {
 	
-	
+	Jogada(){
+		
+	}
+	Jogada(int linha, int coluna, int player){
+		this.linha = linha;
+		this.coluna = coluna;
+		this.player = player;
+		this.done = true;
+	}
 	// Coordenada de linha da jogada.
 	public int linha;
 	// Coordenada de coluna da jogada.
