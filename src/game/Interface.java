@@ -34,7 +34,8 @@ public class Interface {
 		return(jogada);
 	}
 	// Função que retorna uma confirmação do usuário, true if S, false if N
-	boolean confirm() {
+	boolean confirm(String text) {
+		this.print(text);
 		Character option;
 		option = scanner.next().charAt(0);
 		switch(option) {
@@ -48,7 +49,7 @@ public class Interface {
 			return(false);
 		}
 		// Caso receba outra letra, chama a função novamente até que S ou N seja recebido.
-		return(this.confirm());
+		return(this.confirm(text));
 	}
 	
 	// Recebe uma opção em formato de inteiro.

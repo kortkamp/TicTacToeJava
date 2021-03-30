@@ -1,9 +1,11 @@
 // Classe Computador com maior dificuldade.
+// Faz as verificações básicas porém segue uma estratégia básica
 package game;
 
 public class ComputadorDificil extends Computador {
 	public ComputadorDificil(int playerNumber) {
 		super(playerNumber);
+		this.name = "Computador Dificil";	
 	}
 	
 	int[][] path = new int[][]{

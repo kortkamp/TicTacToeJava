@@ -1,33 +1,42 @@
+/* Trabalho de Programação Orientada à Objeto
+ * 	MARCELO TEIXEIRA CAMPOS
+ *	RU: 3398751
+ * 
+ *  Jogo da Velha em Java
+ * 
+ * 
+ */
 package game;
 public class Main {
 	
 	
 	public static void main(String[] args)  {
-		Interface userInterface = new Interface();
+		InterfaceGrafica userInterface = new InterfaceGrafica();
+		//InterfaceGrafica interfaceGrafica = new InterfaceGrafica();
+		
 		userInterface.initialize();
 		
 		Tabuleiro table = new Tabuleiro();
 		
 		// Os itens do array player[] podem ser tanto computadores como jogadores em qualquer combinação.
 		Jogador[] player = new Jogador[2];
-		player[0] = new Jogador(Tabuleiro.PLAYER1);
+		player[0] = new Jogador(Tabuleiro.PLAYER1,userInterface);
+		//player[0] = new ComputadorDificil(Tabuleiro.PLAYER1);
 		player[0].name = "Jogador 1 ";
 		
 		// Solicita ao usuário que informe o nível desejado para o computador.
 		userInterface.print("Selecione o nível do Computador:");
 		userInterface.print("1 - Fácil  , 2 - Médio  ou 3 - Difícil.");
-		switch(userInterface.getOption(3)) {
+		//switch(userInterface.getOption(3)) {
+		switch(3) {
 			case 1:
 				player[1] = new ComputadorFacil(Tabuleiro.PLAYER2);
-				player[1].name = "Computador Fácil";
 				break;
 			case 2:
 				player[1] = new ComputadorMedio(Tabuleiro.PLAYER2);
-				player[1].name = "Computador Médio";
 				break;
 			case 3:
-				player[1] = new ComputadorDificil(Tabuleiro.PLAYER2);
-				player[1].name = "Computador Dificil";		
+				player[1] = new ComputadorDificil(Tabuleiro.PLAYER2);	
 		}
 		
 		
@@ -47,11 +56,13 @@ public class Main {
 			// Loop para a partida.
 			while(table.state == State.RUNNING) {		
 				// Recebe uma jogada válida do jogador e registra no tabuleiro.
+				try{Thread.sleep(300);}catch(InterruptedException e){System.out.println(e);}
 				userInterface.print(player[currentPlayer].name);
 				while(!table.set(player[currentPlayer].getJogada(table)));
 				// Alterna o índice currentPlayer entre 0 e 1 ;
 				currentPlayer ^= 1;
 				// Imprime na tela o tabuleiro atualizado.
+				//userInterface.printTable(table);
 				userInterface.printTable(table);
 			}
 			
@@ -73,8 +84,8 @@ public class Main {
 				
 			
 			// Verifica se o usuário deseja uma nova partida
-			userInterface.print("Deseja Jogar novamente(S ou N)?");
-			if(!userInterface.confirm())
+			
+			if(!userInterface.confirm("Deseja Jogar novamente(S ou N)?"))
 				newMatch = false;
 			
 		}
